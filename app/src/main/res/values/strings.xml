@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MAD155Module5EtchingCollection</string>
+
+    <string name="txtMyMovieCollection">My Movie Collection</string>
+    <string name="txtCategoryPrompt">Pick a Movie Category</string>
+    <string-array name="spnMovieCategories">
+        <item>All</item>
+        <item>Romance</item>
+        <item>Action</item>
+        <item>SciFi</item>
+        <item>Comedy</item>
+        <item>Drama</item>
+        <item>Family</item>
+        <item>Horror</item>
+        <item>Mystery/Suspence</item>
+        <item>Not Categorized</item>
+    </string-array>
+
+    <string name="imgPopcornDesc">Image of Popcorn</string>
+
+    <string name="btnDisplayMovies">Display Movies</string>
+
+
+</resources>
