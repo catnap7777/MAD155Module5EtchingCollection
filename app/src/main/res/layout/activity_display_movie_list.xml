@@ -10,14 +10,14 @@
     <TextView
         android:id="@+id/movies"
         android:layout_width="359dp"
-        android:layout_height="59dp"
+        android:layout_height="33dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:drawableLeft="@drawable/popcorn_vsm"
+        android:drawableLeft="@drawable/popcorn_vsm2"
         android:drawablePadding="10dp"
         android:text="@+id/movies"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
