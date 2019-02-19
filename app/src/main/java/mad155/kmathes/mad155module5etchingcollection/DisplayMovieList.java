@@ -1,14 +1,21 @@
 package mad155.kmathes.mad155module5etchingcollection;
 
 import android.app.ListActivity;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+
 
 public class DisplayMovieList extends ListActivity {
 
@@ -21,32 +28,24 @@ public class DisplayMovieList extends ListActivity {
 
         Bundle b=this.getIntent().getExtras();
 
+        int i = 0;
+
         //..array
         String[] movieArray = b.getStringArray("movieArray");
 
-        //.. array list
-        //ArrayList<String> movieArrayListDisplay = new ArrayList<String>();
-        //movieArrayListDisplay = b.getStringArrayList("movieArrayList");
+        List<String> kamList = new ArrayList<>();
+        //kamList.addAll(Arrays.asList(movieArray));
 
-        //String[] kamArray = b.getStringArray("movieArrayList");
+        for (i=0; i< movieArray.length; i++) {
+            if (movieArray[i].isEmpty() || movieArray[i] == null || movieArray[i].equalsIgnoreCase(" ")) {
+                // do nothing
+            } else {
+                kamList.add(movieArray[i]);
+            }
+        }
 
-        //if (b.getStringArrayList("movieArrayList").isEmpty()) {
-        //    System.out.println("YOU TOTALLY SUCK KAREN");
-        //} else {
-        //    System.out.println("NOT EMPTY");
-        //    System.out.println("Element1: " + movieArrayListDisplay.get(0));
-        //    System.out.println("Element2: " + movieArrayListDisplay.get(1));
+        Collections.sort(kamList);
 
-        //}
-
-        //String[] kamTest = {"this", "is", "so", "annoying"};
-
-        //if(kamArray[0].isEmpty()) {
-        //    System.out.println("KamArray[0] is empty");
-        //}
-        //if(kamArray[1].isEmpty()) {
-        //    System.out.println("KamArray[1] is empty");
-        //}
 
         if(movieArray!=null && movieArray.length>0){
             System.out.println(movieArray.length);
@@ -54,17 +53,17 @@ public class DisplayMovieList extends ListActivity {
             System.out.println("Array is not initialized or empty");
         }
 
-        //System.out.println("kamArray[0]:" + kamArray[0] + " kamArray[1]:" + kamArray[1]);
 
-        //List<String> displayList = new ArrayList<>(Arrays.asList(kamTest));
-
-        //ArrayList<String> displayArrayList = b.getStringArrayList("MovieArrayList");
-
-        //setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_display_movie_list, R.id.movies, kamArray));
-        //setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_display_movie_list, R.id.movies, movieArray));
-        setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_display_movie_list, R.id.movies, movieArray));
+        setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_display_movie_list, R.id.movies, kamList));
 
         System.out.println("HELLO, I AM HERE IN DISPLAYMOVIELIST");
 
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+       startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.imdb.com")));
     }
 }

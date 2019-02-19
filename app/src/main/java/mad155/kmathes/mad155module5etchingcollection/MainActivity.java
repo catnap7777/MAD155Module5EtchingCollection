@@ -10,6 +10,7 @@ import android.widget.Spinner;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
                                 {"Scifi", "Serenity"}
                                };
 
-
-
         btnDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,10 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 categoryNbr = spnCat.getSelectedItemPosition();
                 int i = 0;
 
-                String[] movieDisplayList = new String[50];
+                String[] movieDisplayList = new String[7];
                 Arrays.fill(movieDisplayList, " ");
                 boolean categoryFlag = false;
-
 
                 System.out.println("CATEGORY IS : " + categoryNbr);
 
@@ -69,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }
-
                         break;
                     }
                     case 1: {
@@ -89,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }
-
                         break;
                     }
                     case 2: {
@@ -108,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }
-
                         break;
                     }
                     case 3: {
@@ -127,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }
-
                         break;
                     }
                     case 4: {
@@ -146,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }
-
                         break;
                     }
                     case 5: {
@@ -165,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }
-
                         break;
                     }
                     case 6: {
@@ -184,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }
-
                         break;
                     }
                     case 7: {
@@ -203,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }
-
                         break;
                     }
                     case 8: {
@@ -222,7 +212,6 @@ public class MainActivity extends AppCompatActivity {
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }
-
                         break;
                     }
                     case 9: {
@@ -241,30 +230,19 @@ public class MainActivity extends AppCompatActivity {
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }
-
                         break;
                     }
                     default:
                         break;
                 }
 
-                //final List<String> dresserList = new ArrayList<>(Arrays.asList(dresserToolsArray));
-
-                //ArrayList<String> movieArrayList = new ArrayList<>(Arrays.asList(movieDisplayList));
-
                 Bundle b = new Bundle();
-                //b.putStringArrayList("movieArrayList", movieArrayList);
                 b.putStringArray("movieArray", movieDisplayList);
-
-                //System.out.println("MOVIE ARRAY LIST:" + movieArrayList);
+                //b.putExtra("movieList", kamList1);
 
                 Intent intent1 = new Intent(MainActivity.this, DisplayMovieList.class);
                 intent1.putExtras(b);
-                //intent1.putExtra("array", testIntArray);
                 startActivity(intent1);
-
-
-
 
             }
         });
