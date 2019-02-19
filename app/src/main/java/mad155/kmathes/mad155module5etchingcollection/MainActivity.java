@@ -31,9 +31,24 @@ public class MainActivity extends AppCompatActivity {
         final Spinner spnCat = (Spinner) findViewById(R.id.spnCategories);
         Button btnDisplay = (Button) findViewById(R.id.btnDisplayMovies);
 
+        //.. ALL does not work
+
         final String[][] myMovies =  {{"Romance", "Pride and Prejudice"},
                                 {"Romance", "Sense and Sensibility"},
-                                {"Scifi", "Serenity"}
+                                {"Scifi", "Serenity"},
+                                {"Action", "Raiders of the Lost Ark"},
+                                {"Action", "Indiana Jones and the Temple of Doom"},
+                                {"Horror", "Nightmare on Elm Street"},
+                                {"Comedy", "The Duff"},
+                                {"Action", "Avengers Infinity War"},
+                                {"Drama", "Zero Dark Thirty"},
+                                {"Family", "Nightmare Before Christmas"},
+                                {"Not Categorized", "Sponge Bob"},
+                                {"Action", "Mission Impossible"},
+                                {"Drama", "Saving Private Ryan"},
+                                {"Family", "Christmas with the Kranks"},
+                                {"Scifi", "Star Wars A New Hope"}
+                                //{"Mystery", "Runaway Jury"}  not using this to see what happens if no movie in category
                                };
 
         btnDisplay.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 categoryNbr = spnCat.getSelectedItemPosition();
                 int i = 0;
 
-                String[] movieDisplayList = new String[7];
+                //.. currently leaving only 25 spaces for movies
+                String[] movieDisplayList = new String[25];
                 Arrays.fill(movieDisplayList, " ");
                 boolean categoryFlag = false;
 
@@ -51,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (categoryNbr) {
                     case 0: {
-                        //ALL
-                        //.. read through whole array but build the array for output to use with listview
+                        // if ALL selected
+                        //.. read through whole array but build another array for output to use with listview
                         for (int row = 0; row < myMovies.length; row++) {
                             for (int col = 0; col < myMovies[row].length; col++) {
                                 System.out.println(myMovies[row][col]);
@@ -70,13 +86,32 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case 1: {
-                        //Romance
-                        //.. read through whole array but build the array for output to use with listview
+                        //if Romance selected
+                        //.. read through whole array but build another array for output to use with listview
                         for (int row = 0; row < myMovies.length; row++) {
                             for (int col = 0; col < myMovies[row].length; col++) {
                                 System.out.println(myMovies[row][col]);
                                 //.. col 0 is the category .. col 1 is the movie name
                                 if (col == 0 && myMovies[row][col].equalsIgnoreCase("romance")) {
+                                    movieDisplayList[i] = myMovies[row][1];
+                                    i++;
+                                    categoryFlag = true;
+                            }
+                            }
+                        }
+                        if(categoryFlag == false) {
+                            movieDisplayList[0] = "No movies for this category";
+                        }
+                        break;
+                    }
+                    case 2: {
+                        //if Action selected
+                        //.. read through whole array but build another array for output to use with listview
+                        for (int row = 0; row < myMovies.length; row++) {
+                            for (int col = 0; col < myMovies[row].length; col++) {
+                                System.out.println(myMovies[row][col]);
+                                //.. col 0 is the category .. col 1 is the movie name
+                                if (col == 0 && myMovies[row][col].equalsIgnoreCase("action")) {
                                     movieDisplayList[i] = myMovies[row][1];
                                     i++;
                                     categoryFlag = true;
@@ -88,27 +123,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                     }
-                    case 2: {
-                        //Action
-                        //.. read through whole array but build the array for output to use with listview
-                        for (int row = 0; row < myMovies.length; row++) {
-                            for (int col = 0; col < myMovies[row].length; col++) {
-                                System.out.println(myMovies[row][col]);
-                                //.. col 0 is the category .. col 1 is the movie name
-                                if (col == 0 && myMovies[row][col].equalsIgnoreCase("action")) {
-                                    movieDisplayList[i] = myMovies[row][1];
-                                    i++;
-                                }
-                            }
-                        }
-                        if(categoryFlag == false) {
-                            movieDisplayList[0] = "No movies for this category";
-                        }
-                        break;
-                    }
                     case 3: {
-                        //Scifi
-                        //.. read through whole array but build the array for output to use with listview
+                        //if Scifi selected
+                        //.. read through whole array but build another array for output to use with listview
                         for (int row = 0; row < myMovies.length; row++) {
                             for (int col = 0; col < myMovies[row].length; col++) {
                                 System.out.println(myMovies[row][col]);
@@ -116,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (col == 0 && myMovies[row][col].equalsIgnoreCase("scifi")) {
                                     movieDisplayList[i] = myMovies[row][1];
                                     i++;
+                                    categoryFlag = true;
                                 }
                             }
                         }
@@ -125,8 +143,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case 4: {
-                        //Comdedy
-                        //.. read through whole array but build the array for output to use with listview
+                        //if Comdedy selected
+                        //.. read through whole array but build another array for output to use with listview
                         for (int row = 0; row < myMovies.length; row++) {
                             for (int col = 0; col < myMovies[row].length; col++) {
                                 System.out.println(myMovies[row][col]);
@@ -134,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (col == 0 && myMovies[row][col].equalsIgnoreCase("comedy")) {
                                     movieDisplayList[i] = myMovies[row][1];
                                     i++;
+                                    categoryFlag = true;
                                 }
                             }
                         }
@@ -143,8 +162,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case 5: {
-                        //Drama
-                        //.. read through whole array but build the array for output to use with listview
+                        //if Drama selected
+                        //.. read through whole array but build another array for output to use with listview
                         for (int row = 0; row < myMovies.length; row++) {
                             for (int col = 0; col < myMovies[row].length; col++) {
                                 System.out.println(myMovies[row][col]);
@@ -152,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (col == 0 && myMovies[row][col].equalsIgnoreCase("drama")) {
                                     movieDisplayList[i] = myMovies[row][1];
                                     i++;
+                                    categoryFlag = true;
                                 }
                             }
                         }
@@ -161,8 +181,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case 6: {
-                        //Family
-                        //.. read through whole array but build the array for output to use with listview
+                        //if Family selected
+                        //.. read through whole array but build another array for output to use with listview
                         for (int row = 0; row < myMovies.length; row++) {
                             for (int col = 0; col < myMovies[row].length; col++) {
                                 System.out.println(myMovies[row][col]);
@@ -170,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (col == 0 && myMovies[row][col].equalsIgnoreCase("family")) {
                                     movieDisplayList[i] = myMovies[row][1];
                                     i++;
+                                    categoryFlag = true;
                                 }
                             }
                         }
@@ -179,8 +200,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case 7: {
-                        //Horror
-                        //.. read through whole array but build the array for output to use with listview
+                        //if Horror selected
+                        //.. read through whole array but build another array for output to use with listview
                         for (int row = 0; row < myMovies.length; row++) {
                             for (int col = 0; col < myMovies[row].length; col++) {
                                 System.out.println(myMovies[row][col]);
@@ -188,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (col == 0 && myMovies[row][col].equalsIgnoreCase("horror")) {
                                     movieDisplayList[i] = myMovies[row][1];
                                     i++;
+                                    categoryFlag = true;
                                 }
                             }
                         }
@@ -197,8 +219,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case 8: {
-                        //Mystery/Suspense
-                        //.. read through whole array but build the array for output to use with listview
+                        //if Mystery/Suspense selected
+                        //.. read through whole array but build another array for output to use with listview
                         for (int row = 0; row < myMovies.length; row++) {
                             for (int col = 0; col < myMovies[row].length; col++) {
                                 System.out.println(myMovies[row][col]);
@@ -206,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (col == 0 && myMovies[row][col].equalsIgnoreCase("mystery/suspence")) {
                                     movieDisplayList[i] = myMovies[row][1];
                                     i++;
+                                    categoryFlag = true;
                                 }
                             }
                         }
@@ -215,8 +238,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case 9: {
-                        //Not Categorized
-                        //.. read through whole array but build the array for output to use with listview
+                        //if Not Categorized selected
+                        //.. read through whole array but build another array for output to use with listview
                         for (int row = 0; row < myMovies.length; row++) {
                             for (int col = 0; col < myMovies[row].length; col++) {
                                 System.out.println(myMovies[row][col]);
@@ -224,6 +247,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (col == 0 && myMovies[row][col].equalsIgnoreCase("not categorized")) {
                                     movieDisplayList[i] = myMovies[row][1];
                                     i++;
+                                    categoryFlag = true;
                                 }
                             }
                         }
@@ -233,12 +257,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     default:
+                        movieDisplayList[0] = "Error - No Movies";
                         break;
                 }
 
                 Bundle b = new Bundle();
                 b.putStringArray("movieArray", movieDisplayList);
-                //b.putExtra("movieList", kamList1);
 
                 Intent intent1 = new Intent(MainActivity.this, DisplayMovieList.class);
                 intent1.putExtras(b);
