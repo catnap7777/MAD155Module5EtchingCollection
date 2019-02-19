@@ -10,11 +10,11 @@
     <TextView
         android:id="@+id/movies"
         android:layout_width="359dp"
-        android:layout_height="33dp"
+        android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:drawableLeft="@drawable/popcorn_vsm2"
+        android:drawableLeft="@drawable/ic_launcher_popcorn2_sm"
         android:drawablePadding="10dp"
         android:text="@+id/movies"
         android:textSize="15sp"
