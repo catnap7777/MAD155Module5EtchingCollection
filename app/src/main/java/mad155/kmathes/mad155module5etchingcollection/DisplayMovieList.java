@@ -62,7 +62,10 @@ public class DisplayMovieList extends ListActivity {
 
         //.. System.out.println to test out parameter build
         //System.out.println("selected list value with plus signs: " + selectedValue);
-        //.. Should wind up looking like -> String k1 = "pride+and+prejudice";
+
+        //.. Example IMDB Uri for Pride and Prejudice ->
+        //..     https://www.imdb.com/find?ref_=nv_sr_fn&q=pride+and+predudice&s=all
+        //.. test string --> String k1 = "pride+and+prejudice";
 
         //.. build Uri
         Uri.Builder builder = new Uri.Builder();
@@ -70,7 +73,7 @@ public class DisplayMovieList extends ListActivity {
                 .authority("www.imdb.com")
                 .appendPath("find")
                 .appendQueryParameter("ref_","nv_sr_fn")
-                .appendQueryParameter("q",selectedValue)
+                .appendQueryParameter("q",selectedValue) //from the title parsed and reformatted from the list item selected
                 .appendQueryParameter("s","all");
 
         String myUrl = builder.build().toString();
