@@ -36,10 +36,13 @@ public class MainActivity extends AppCompatActivity {
         final String[][] myMovies =  {{"Romance", "Pride and Prejudice"},
                                 {"Romance", "Sense and Sensibility"},
                                 {"Scifi", "Serenity"},
+                                {"Scifi", "The Martian"},
                                 {"Action", "Raiders of the Lost Ark"},
                                 {"Action", "Indiana Jones and the Temple of Doom"},
                                 {"Horror", "Nightmare on Elm Street"},
                                 {"Comedy", "The Duff"},
+                                {"Comedy", "The Rocker"},
+                                {"Family", "Harry Potter and the Sorcerer\'s Stone"},
                                 {"Action", "Avengers Infinity War"},
                                 {"Drama", "Zero Dark Thirty"},
                                 {"Family", "Nightmare Before Christmas"},
@@ -50,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
                                 {"Scifi", "Star Wars A New Hope"}
                                 //{"Mystery", "Runaway Jury"}  not using this to see what happens if no movie in category
                                };
+
+
 
         btnDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     case 0: {
                         // if ALL selected
                         //.. read through whole array but build another array for output to use with listview
+
                         for (int row = 0; row < myMovies.length; row++) {
                             for (int col = 0; col < myMovies[row].length; col++) {
                                 System.out.println(myMovies[row][col]);
@@ -83,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }
+
                         break;
                     }
                     case 1: {
