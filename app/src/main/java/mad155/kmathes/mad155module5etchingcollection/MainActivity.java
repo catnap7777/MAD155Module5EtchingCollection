@@ -50,7 +50,9 @@ public class MainActivity extends AppCompatActivity {
                                 {"Action", "Mission Impossible"},
                                 {"Drama", "Saving Private Ryan"},
                                 {"Family", "Christmas with the Kranks"},
-                                {"Scifi", "Star Wars A New Hope"}
+                                {"Scifi", "Star Wars A New Hope"},
+                                {"Horror","qurslytkesl"}, //test to see if it still goes to IMDB
+                                {"Fake Category", "Oops"} //test to see if this shows up in ALL category
                                 //{"Mystery", "Runaway Jury"}  not using this to see what happens if no movie in category
                                };
 
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         }
+
                         if(categoryFlag == false) {
                             movieDisplayList[0] = "No movies for this category";
                         }

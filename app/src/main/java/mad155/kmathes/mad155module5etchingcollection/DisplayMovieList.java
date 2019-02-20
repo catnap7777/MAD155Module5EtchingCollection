@@ -16,7 +16,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-
+//public class DisplayMovieList extends AppCompatActivity {
 public class DisplayMovieList extends ListActivity {
 
     @Override
@@ -31,39 +31,20 @@ public class DisplayMovieList extends ListActivity {
         //..array
         String[] movieArray = b.getStringArray("movieArray");
 
-        //String kamTestString1 = movieArray[0];
-        //String kamTestString2;
-        //kamTestString2 = kamTestString1.replaceAll("\\s", "+");
-        //System.out.println("movieArray[0] = " + kamTestString1 + "kamTestString2 = " + kamTestString2);
-
-        //String str = "a12.334tyz.78x";
-        //str = str.replaceAll("[^\\d.]", "");
-
         //.. copy array into list to manipulate easier
-        List<String> kamList = new ArrayList<>();
+        List<String> movieList = new ArrayList<>();
 
         for (i=0; i< movieArray.length; i++) {
             if (movieArray[i].isEmpty() || movieArray[i] == null || movieArray[i].equalsIgnoreCase(" ")) {
                 // do nothing
             } else {
-                kamList.add(movieArray[i]);
+                movieList.add(movieArray[i]);
             }
         }
         //.. sort by names of movies
-        Collections.sort(kamList);
+        Collections.sort(movieList);
 
-
-        //if(movieArray!=null && movieArray.length>0){
-        //    System.out.println(movieArray.length);
-        //} else {
-        //    System.out.println("Array is not initialized or empty");
-        //}
-
-
-        setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_display_movie_list, R.id.movies, kamList));
-
-        //System.out.println("HELLO, I AM HERE IN DISPLAYMOVIELIST");
-
+        setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_display_movie_list, R.id.movies, movieList));
     }
 
     @Override
@@ -72,12 +53,16 @@ public class DisplayMovieList extends ListActivity {
 
         //.. get the movie that was selected
         String selectedValue = (String) getListAdapter().getItem(position);
-        //.. System.out.printlns to test out parameter build
+
+        //.. System.out.println to test out parameter build
         //System.out.println("selected list value: " + selectedValue);
-        //.. format movie name to use in Uri builder
+
+        //.. reformat movie name to use in Uri builder
         selectedValue = selectedValue.replaceAll("\\s", "+");
+
+        //.. System.out.println to test out parameter build
         //System.out.println("selected list value with plus signs: " + selectedValue);
-        //String k1 = "pride+and+prejudice";
+        //.. Should wind up looking like -> String k1 = "pride+and+prejudice";
 
         //.. build Uri
         Uri.Builder builder = new Uri.Builder();
@@ -90,6 +75,7 @@ public class DisplayMovieList extends ListActivity {
 
         String myUrl = builder.build().toString();
 
+        //.. System.out.println to test out parameter build
         //System.out.println("myUrl = " + myUrl);
 
         //.. example https://stackoverflow.com/questions/19167954/use-uri-builder-in-android-or-create-url-with-variables
@@ -104,11 +90,11 @@ public class DisplayMovieList extends ListActivity {
         //        .fragment("section-name");
         //String myUrl = builder.build().toString();
 
-
+        //.. old Uri to go to IMDB home page
         //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.imdb.com")));
+
         //.. start external activity to to to IMDB page for movie selected
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(myUrl)));
-
 
     }
 }
