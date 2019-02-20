@@ -16,6 +16,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+
 //public class DisplayMovieList extends AppCompatActivity {
 public class DisplayMovieList extends ListActivity {
 
